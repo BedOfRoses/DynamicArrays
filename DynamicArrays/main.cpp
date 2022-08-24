@@ -1,78 +1,52 @@
 #include <iostream>
 
+/*
+	//Source-help : https://www.youtube.com/watch?v=MwwbgqG6bSk
 
-class DArray
+	datatype *TheArray
+	TheArray = new datatype[numElements];
+
+	delete[] TheArray;
+
+	*/
+
+
+class DynamicArray 
 {
 public:
-	int* ptrArray{};
 
-	void* source{};
-	void* destination{};
-	size_t* size{};
-	int* index{};
-	int AllocatedSize{};
-
-	//Selve constructor for arrayet
-	DArray(size_t DesiredSize)
+	//	constructor
+	DynamicArray()
 	{
-		/*
-		Lagre plass i minnet med malloc
-		*/
+		i_ptr_DynArray = new int[0];
+	}
+	
+	//	deconstrucor / delete
+	~DynamicArray()
+	{
+		delete[] i_ptr_DynArray;
+	};
 
-		/*std::cout << "How big do you want your array size to be: " << std::endl;
-		std::cin >> AllocatedSize;
+	int AddToArray(int i_index) 
+	{
 
-		malloc(AllocatedSize);*/
-
-
-		//Hvis den som lager array ikke velger størrelse, sett lik null.
-
-		if (DesiredSize == NULL)
-		{
-			//Hvis allocated memory er 0, free mem
-			ptrArray = (int*)malloc(DesiredSize);
-		}
-		else 
-		{
-			ptrArray = (int*)malloc(DesiredSize);
-		}
 	}
 
 
-	void AddToArray(int (*ptr)[], int index, int insertNumber)
-	{
-		/*
-		
-		//hvordan funksjonen skal se ut
-		void AddToArray(selve arrayet, index, hva som addes)
-		
-		
-		* Steg 1
-		først få tak i array, og da starter man i 0 / første element;
-		-pointer til arrayet.
-		- loop, kanskje for loop.
-		- lagre siste posisjon i en pointer;
 
-		* Steg 2
-		så finne ytterst i arrayet / siste element;
-		- bruke index pointern.
-		- += ? kan man sikkert.
-		*/
+private:
+	int *i_ptr_DynArray; //This is the pointer.
 
-		(* ptr)[index] += insertNumber;
-		
-
-
-	};
+	int i_index;
 
 };
 
 
-int main() 
-{
-	DArray MyArray;
 
-	//MyArray.AddToArray()
+int main() 
+{ 
+
+
 
 	return 0;
 }

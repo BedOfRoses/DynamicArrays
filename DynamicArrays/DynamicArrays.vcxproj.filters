@@ -29,5 +29,8 @@
     <ClInclude Include="meisamThingFromFirstClass.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="test2_veryClose_WithTemplates.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
