@@ -55,7 +55,8 @@ public:
 		//T* thisArray = new T[_size];
 		//DynAmi[_size] 
 
-		this->new T[_size] 
+		new T[0];
+		//this->new T[_size] 
 		//T DynAmi[_size];
 	}
 	
@@ -63,7 +64,7 @@ public:
 	~DynamicArray()
 	{
 		//delete[] DynAmi;
-		this->delete []DynAmi;
+		//delete [] DynAmi;
 
 		//delete[] i_ptr_DynArray;
 	};
@@ -84,10 +85,34 @@ public:
 	void ExpandArray(int newSize)
 	{
 		//first we get new the array
-
 		T* newDynAmi = new T[newSize]; 
 
+		//second copy old array to new array
+		for (int i = 0; i < NumberArrayElements; i++)
+		{
+			newDynAmi[i] = DynAmi[1];
 
+		}
+		
+		//third, delets old array
+		//delete[] DynAmi;
+
+		//4
+
+		for (int i = 0; i < newSize; i++)
+			DynAmi[i] = newDynAmi[i];
+
+			
+		/*
+		1.	First, create a new pointerr array that will be a temporary place holder. With the designated size of the user
+
+		2. Second, copy over the old array, to the new temporary.
+
+		3. free up the old space from old array (with delete[] arrayname)
+		
+		4. create new array from the one in private
+		
+		*/
 
 		//Dynami[newSize] = ;
 		
@@ -97,9 +122,10 @@ public:
 private:
 	//int *i_ptr_DynArray; //This is the pointer. ////***** Dont think we need this one
 
-	int i_index; //variable for indexing
+	int i_index{}; //variable for indexing
 
-	T DynAmi[_size]; //
+	int NumberArrayElements{8}; //for such instances where we need the size of the array
+	T DynAmi[_size]{}; //
 
 };
 
@@ -118,7 +144,7 @@ int main()
 	DynamicArray<int, 6> Bob;
 
 	//inserts numbers
-	Bob.AddToArray(0,46);
+	Bob.AddToArray(0,6);
 	Bob.AddToArray(1,0);
 	Bob.AddToArray(2,1);
 	Bob.AddToArray(3,2);
@@ -147,7 +173,7 @@ int main()
 
 	std::cin >> userelement;
 	std::cout << std::endl;
-	Bob.ExpandArray(userelement);
+	//Bob.ExpandArray(userelement);
 
 	return 0;
 }
