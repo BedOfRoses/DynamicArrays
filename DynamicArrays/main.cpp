@@ -49,13 +49,23 @@ public:
 	//	constructor
 	DynamicArray()
 	{
-		i_ptr_DynArray = new int[0];
+		//i_ptr_DynArray = new int[0];
+
+
+		//T* thisArray = new T[_size];
+		//DynAmi[_size] 
+
+		this->new T[_size] 
+		//T DynAmi[_size];
 	}
 	
 	//	deconstrucor / delete
 	~DynamicArray()
 	{
-		delete[] i_ptr_DynArray;
+		//delete[] DynAmi;
+		this->delete []DynAmi;
+
+		//delete[] i_ptr_DynArray;
 	};
 
 	int AddToArray(int i_index, T element) 
@@ -63,17 +73,33 @@ public:
 		return DynAmi[i_index] += element;
 	}
 
-	void PrintA(int i) {
+	void PrintA(int i) 
+	{
 		std::cout << DynAmi[i];
+	}
+
+	//simply returns the size of the dynamic array  
+	int ArraySize() const { return _size; }
+
+	void ExpandArray(int newSize)
+	{
+		//first we get new the array
+
+		T* newDynAmi = new T[newSize]; 
+
+
+
+		//Dynami[newSize] = ;
 		
 	}
 
+
 private:
-	int *i_ptr_DynArray; //This is the pointer.
+	//int *i_ptr_DynArray; //This is the pointer. ////***** Dont think we need this one
 
-	int i_index;
+	int i_index; //variable for indexing
 
-	T DynAmi[_size];
+	T DynAmi[_size]; //
 
 };
 
@@ -88,9 +114,11 @@ int binarySearch(int Element)
 
 int main() 
 { 
-
+	//array
 	DynamicArray<int, 6> Bob;
 
+	//inserts numbers
+	Bob.AddToArray(0,46);
 	Bob.AddToArray(1,0);
 	Bob.AddToArray(2,1);
 	Bob.AddToArray(3,2);
@@ -98,7 +126,28 @@ int main()
 	Bob.AddToArray(5,4);
 	Bob.AddToArray(6,5);
 
-	Bob.PrintA(2);
+	//print for con.
+	for (int i = 0; i < Bob.ArraySize(); i++)
+	{
+		Bob.PrintA(i);
+
+	}
+
+	//how large is the array?
+
+	//do you want to add slots?
+
+	//how large is the array now?
+
+	//user choses element to inspect
+	int userelement{};
+	std::cin >> userelement;
+	std::cout << std::endl;
+	Bob.PrintA(userelement);
+
+	std::cin >> userelement;
+	std::cout << std::endl;
+	Bob.ExpandArray(userelement);
 
 	return 0;
 }
